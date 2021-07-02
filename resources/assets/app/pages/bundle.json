@@ -1,4 +1,8 @@
 [
+    "admincp",
     "index",
-    "profile"
+    "ladder",
+    "match",
+    "profile",
+    "team"
 ]
