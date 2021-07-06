@@ -9,6 +9,10 @@ $r->group(
       ->pattern('/bank'),
     function (Router $r) {
         $r->get('deposits', '/deposits[/{page:int}]', Web\Account\Bank\Action::class, 'deposits');
+        $r->get('transactions', '/transactions[/{page:int}]', Web\Account\Bank\Action::class, 'transactions');
+        $r->get('withdraws', '/withdraws[/{page:int}]', Web\Account\Bank\Action::class, 'withdraws');
+        
+        $r->post('withdraw.command', '/withdraw', Commands\User\Bank\Withdraw\Create\Action::class);
 
         $r->post('deposit.command', '/deposit', Commands\User\Bank\Deposit\Action::class)
           ->middleware(function(RouteMiddleware $m) {
