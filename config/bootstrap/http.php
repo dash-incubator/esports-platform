@@ -63,7 +63,7 @@ use App\Bootstrap\Stages;
 $app['stages'] = array_merge($app['stages'], [
     Stages\Http\ParseRequest::class,
     Stages\Http\SetHost::class,
-    Stages\Http\VerifyOrganization::class,
+    // Stages\Http\VerifyOrganization::class,
     Stages\Http\MatchRoute::class,
     Stages\Http\Dispatch::class
 ]);
