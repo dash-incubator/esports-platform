@@ -19,7 +19,9 @@ class MailProvider extends AbstractProvider
         $this->container->singleton(Mailer::class, null, [
             $this->config->get('contracts.mail.host'),
             (bool) $this->config->get('contracts.mail.persist'),
-            (int) $this->config->get('contracts.mail.port')
+            (int) $this->config->get('contracts.mail.port'),
+            (string) $this->config->get('contracts.mail.password')
+            (string) $this->config->get('contracts.mail.username')
         ]);
     }
 }

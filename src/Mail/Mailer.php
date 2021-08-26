@@ -18,22 +18,31 @@ class Mailer implements Contract
     private $smtp;
 
 
-    public function __construct(string $host, bool $persist, int $port)
+    public function __construct(string $host, bool $persist, int $port, ?string $password = null, ?string $username = null)
     {
         $this->host = $host;
+        $this->password = $password;
         $this->persist = $persist;
         $this->port = $port;
+        $this->username = $username;
     }
 
 
     private function getSMTP()
     {
         if (is_null($this->smtp)) {
-            $this->smtp = PEARMail::factory('smtp', [
+            $config = [
                 'host' => $this->host,
                 'persist' => $this->persist,
                 'port' => $this->port
-            ]);
+            ];
+            
+            if ($this->password && $this->username) {
+                $config['password'] = $this->password;
+                $config['username'] = $this->username;
+            }
+            
+            $this->smtp = PEARMail::factory('smtp', $config);
         }
 
         return $this->smtp;
