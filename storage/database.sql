@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 05, 2020 at 09:32 PM
--- Server version: 10.4.12-MariaDB-1:10.4.12+maria~bionic
--- PHP Version: 7.4.4
+-- Generation Time: Aug 30, 2021 at 05:43 PM
+-- Server version: 10.5.12-MariaDB-1:10.5.12+maria~focal
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -249,6 +249,13 @@ CREATE TABLE `Organization` (
   `paypal` varchar(60) NOT NULL,
   `user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Organization`
+--
+
+INSERT INTO `Organization` (`createdAt`, `domain`, `id`, `name`, `paypal`, `user`) VALUES
+(1630345317, 'gamrs.net', 1, 'GAMRS', 'payments@gamrs.net', 1);
 
 -- --------------------------------------------------------
 
@@ -687,7 +694,7 @@ ALTER TABLE `LadderTeamMember`
 -- AUTO_INCREMENT for table `Organization`
 --
 ALTER TABLE `Organization`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `User`
@@ -754,6 +761,7 @@ ALTER TABLE `UserLockMessageTemplate`
 --
 ALTER TABLE `UserRank`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
